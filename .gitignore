@@ -1,0 +1,8 @@
+.DS_Store
+__pycache__/
+.vscode/
+*.db
+*.xlsx
+*.xls
+*.csv
+*.env
