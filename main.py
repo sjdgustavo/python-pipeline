@@ -12,7 +12,6 @@ from transform.transform_base_check_valores import gerar_base_check_valores
 from transform.transform_dfs_auxiliares_rateio import (gerar_df_custo_rep_canal,
                                                       gerar_df_receita_canal,
                                                       gerar_df_custo_rep_fonte_base,
-                                                      gerar_df_receita_canal_fonte,
                                                       gerar_df_var_mapeada_canal_base)
 from transform.transform_dfs_rateios import (gerar_rateio_abatimentos,
                                             gerar_rateio_provisao_obsoleto,
@@ -36,7 +35,6 @@ from transform.transform_colunas_base_rateio import (coluna_abatimentos,
                                                      coluna_part_cbr,
                                                      coluna_variacao_adicional,
                                                      coluna_variacao_cpv)
-
 
 # %% --- Extrações dos dados em dataframes ---
 df_base_fonte_1 = load_base_fonte_1()
@@ -83,8 +81,5 @@ base_rateio = coluna_variacao_adicional(base_rateio, rateio_ganho_cpv)
 
 base_rateio = coluna_variacao_cpv(base_rateio)
 
-# %%
-base_rateio.head()
-
-
 # %% --- Exportação arquivos transformados --- 
+base_rateio.to_excel(caminho_export/'base_rateio.xlsx', index=False)
